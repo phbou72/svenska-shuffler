@@ -81,7 +81,7 @@ export default class Card extends React.PureComponent<IProps, IState> {
         {!this.state.showAnswer && this.props.question}
         {this.state.showAnswer && this.props.answer}
         {!this.state.showAnswer && (
-          <Button onClick={this.onShowAnswerClick}>Answer</Button>
+          <Button onClick={this.onShowAnswerClick}>Réponse</Button>
         )}
       </StyledCard>
     );
