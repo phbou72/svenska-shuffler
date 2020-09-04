@@ -111,8 +111,8 @@ export default class App extends React.PureComponent<IProps, IState> {
       <StyledApp>
         <Card question={text[question]} answer={text[answer]} />
         <Buttons>
-          <InverseButton onClick={this.onInverseClick}>Inverse</InverseButton>
-          <RandomButton onClick={this.onRandomClick}>Randomize</RandomButton>
+          <InverseButton onClick={this.onInverseClick}>Inverser</InverseButton>
+          <RandomButton onClick={this.onRandomClick}>Randomiser</RandomButton>
         </Buttons>
       </StyledApp>
     );
