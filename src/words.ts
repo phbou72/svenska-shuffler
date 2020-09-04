@@ -44,7 +44,7 @@ const words = [
   ["kär", "amoureux"],
   ["morgon -en mor(g)nar", "matiné"],
   ["sov/a -er sov sovit", "dormir"],
-  ["vad", "comment que quoi"],
+  ["vad", "comment, que, quoi, combien, qu'est-ce que, ce que"],
   ["vilken vilket vilka", "quel quelle quels quelles"],
   ["äta äter åt ätit", "manger"],
 ];
