@@ -47,6 +47,23 @@ const words = [
   ["vad", "comment, que, quoi, combien, qu'est-ce que, ce que"],
   ["vilken vilket vilka", "quel quelle quels quelles"],
   ["äta äter åt ätit", "manger"],
+  ["alltså", "donc"],
+  ["diska -r -de -t", "vaiselle (faire la)"],
+  ["dusch -en -ar", "douche"],
+  ["där", "là-bas"],
+  ["hallå", "allo"],
+  ["han", "il"],
+  ["hej då", "salut (au revoir)"],
+  ["komma kommer kom kommit", "arriver venir"],
+  ["mustasch -en -en", "moustache"],
+  ["nej", "non"],
+  ["nisch", "niche"],
+  ["och", "et"],
+  ["okej", "ok"],
+  ["ring/a -er -de -t", "sonner téléphoner"],
+  ["telefon -en -er", "téléphone"],
+  ["tjänare", "salut (serviteur)"],
+  ["älskling", "chéri/e"],
 ];
 
 export default words;
