@@ -42,6 +42,23 @@ export default class Card extends React.PureComponent<IProps, IState> {
     super(props);
 
     this.onShowAnswerClick = this.onShowAnswerClick.bind(this);
+    this.onKeyDown = this.onKeyDown.bind(this);
+  }
+
+  public componentDidMount() {
+    document.addEventListener("keydown", this.onKeyDown);
+  }
+
+  public componentWillUnmount() {
+    document.removeEventListener("keydown", this.onKeyDown);
+  }
+
+  private onKeyDown(e: any) {
+    switch (e.key) {
+      case "a":
+        this.onShowAnswerClick();
+        break;
+    }
   }
 
   private onShowAnswerClick() {

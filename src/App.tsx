@@ -61,6 +61,27 @@ export default class App extends React.PureComponent<IProps, IState> {
 
     this.onRandomClick = this.onRandomClick.bind(this);
     this.onInverseClick = this.onInverseClick.bind(this);
+    this.onKeyDown = this.onKeyDown.bind(this);
+  }
+
+  public componentDidMount() {
+    document.addEventListener("keydown", this.onKeyDown);
+  }
+
+  public componentWillUnmount() {
+    document.removeEventListener("keydown", this.onKeyDown);
+  }
+
+  private onKeyDown(e: any) {
+    switch (e.key) {
+      case "r":
+        this.onRandomClick();
+        break;
+
+      case "i":
+        this.onInverseClick();
+        break;
+    }
   }
 
   private getRandomIndex() {
