@@ -1,13 +1,39 @@
 import * as React from "react";
+import styled from "styled-components";
+
+const StyledCard = styled.div`
+  padding: 20px;
+  border-radius: 5px;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 250px;
+  max-width: 250px;
+  min-height: 150px;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+`;
+
+const Button = styled.button`
+  display: block;
+  margin: 20px;
+  background-color: #6699cc;
+  border-color: #6699cc;
+  font-size: 16px;
+  color: white;
+  border-radius: 5px;
+  padding: 12px;
+`;
 
 interface IProps {
-  text: string[];
+  question: string;
+  answer: string;
 }
 interface IState {
   showAnswer: boolean;
 }
 
-export default class Card extends React.Component<IProps, IState> {
+export default class Card extends React.PureComponent<IProps, IState> {
   public state: IState = {
     showAnswer: false,
   };
@@ -24,15 +50,23 @@ export default class Card extends React.Component<IProps, IState> {
     });
   }
 
+  public componentDidUpdate(nextProps: IProps) {
+    if (nextProps.question !== this.props.question) {
+      this.setState({
+        showAnswer: false,
+      });
+    }
+  }
+
   public render() {
     return (
-      <div>
-        {!this.state.showAnswer && this.props.text[0]}
-        {this.state.showAnswer && this.props.text[1]}
+      <StyledCard>
+        {!this.state.showAnswer && this.props.question}
+        {this.state.showAnswer && this.props.answer}
         {!this.state.showAnswer && (
-          <button onClick={this.onShowAnswerClick}>Show Answer</button>
+          <Button onClick={this.onShowAnswerClick}>Answer</Button>
         )}
-      </div>
+      </StyledCard>
     );
   }
 }
