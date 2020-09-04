@@ -2,6 +2,11 @@
 
 const words = [
   ["fösta", "première"],
+  ["andra", "deuxième"],
+  ["tredje", "troisième"],
+  ["fjärde", "quatrième"],
+  ["femte", "cinquième"],
+  ["lektionen", "leçon"],
   ["bra bättre bäst", "bien"],
   ["du", "tu"],
   ["fråg/a -an -or", "question"],
@@ -64,6 +69,15 @@ const words = [
   ["telefon -en -er", "téléphone"],
   ["tjänare", "salut (serviteur)"],
   ["älskling", "chéri/e"],
+  ["ett", "un/e"],
+  ["glas -et", "verre"],
+  ["kosta -r -de -t", "coûter"],
+  ["kött -et", "viande"],
+  ["lax -en -ar", "saumon"],
+  ["mjölk -en", "lait"],
+  ["skiv/a -an -or", "tranche"],
+  ["skort/a -an -or", "chemise"],
+  ["vin -et -er", "vin"],
 ];
 
 export default words;
