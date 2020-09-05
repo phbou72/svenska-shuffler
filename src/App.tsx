@@ -27,6 +27,7 @@ const RandomButton = styled.button`
   color: white;
   border-radius: 5px;
   padding: 12px;
+  border-style: none;
 `;
 
 const InverseButton = styled.button`
@@ -37,6 +38,7 @@ const InverseButton = styled.button`
   color: white;
   border-radius: 5px;
   padding: 12px;
+  border-style: none;
 `;
 
 interface IProps {}

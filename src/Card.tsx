@@ -23,6 +23,7 @@ const Button = styled.button`
   color: white;
   border-radius: 5px;
   padding: 12px;
+  border-style: none;
 `;
 
 interface IProps {
@@ -42,6 +43,7 @@ export default class Card extends React.PureComponent<IProps, IState> {
     super(props);
 
     this.onShowAnswerClick = this.onShowAnswerClick.bind(this);
+    this.onShowQuestionClick = this.onShowQuestionClick.bind(this);
     this.onKeyDown = this.onKeyDown.bind(this);
   }
 
@@ -59,6 +61,12 @@ export default class Card extends React.PureComponent<IProps, IState> {
         this.onShowAnswerClick();
         break;
     }
+  }
+
+  private onShowQuestionClick() {
+    this.setState({
+      showAnswer: false,
+    });
   }
 
   private onShowAnswerClick() {
@@ -80,6 +88,9 @@ export default class Card extends React.PureComponent<IProps, IState> {
       <StyledCard>
         {!this.state.showAnswer && this.props.question}
         {this.state.showAnswer && this.props.answer}
+        {this.state.showAnswer && (
+          <Button onClick={this.onShowQuestionClick}>Revoir</Button>
+        )}
         {!this.state.showAnswer && (
           <Button onClick={this.onShowAnswerClick}>Réponse</Button>
         )}
