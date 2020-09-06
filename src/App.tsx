@@ -16,7 +16,6 @@ const StyledApp = styled.div`
 const Buttons = styled.div`
   display: flex;
   justify-content: center;
-  /* flex-direction: column; */
   button:first-child {
     margin-right: 8px;
   }
@@ -48,6 +47,12 @@ const Quizz = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
+`;
+
+const Count = styled.div`
+  display: flex;
+  justify-content: center;
+  margin: 16px 0;
 `;
 
 const List = styled.div`
@@ -150,6 +155,9 @@ export default class App extends React.PureComponent<IProps, IState> {
             <RandomButton onClick={this.onRandomClick}>Randomiser</RandomButton>
           </Buttons>
         </Quizz>
+
+        <Count>Number of words : {words.length}</Count>
+
         {this.buildList()}
       </StyledApp>
     );
