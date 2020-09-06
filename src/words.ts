@@ -147,6 +147,21 @@ const words = [
   ["jättegott", "super bon"],
   ["billigt", "pas cher"],
   ["veta vet vissta vetat", "savoir"],
+  ["fästmö -n -r", "fiancée"],
+  ["hans", "sa (à lui) / le sien / la sienne / les siennes ses son"],
+  ["i", "dans"],
+  [
+    "min / mitt / mina",
+    "mon / ma / mes / le mien / la mienne / les miennes / à moi",
+  ],
+  ["mö -n -r", "jeune fille"],
+  ["otur -en", "malchance"],
+  ["puck/el -eln -lar", "bosse"],
+  ["puckelrygg (ha)", "bosse (avoir) bossu (être)"],
+  ["rygg -en -ar", "dos"],
+  ["syst/er -ern -ar", "soeur"],
+  ["tur -en", "chance"],
+  ["ännu", "encore"],
 ];
 
 export default words;
