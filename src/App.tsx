@@ -41,6 +41,17 @@ const InverseButton = styled.button`
   border-style: none;
 `;
 
+const Quizz = styled.div``;
+
+const List = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  span {
+    margin: 0 8px;
+  }
+`;
+
 interface IProps {}
 interface IState {
   wordIndex: number;
@@ -103,6 +114,18 @@ export default class App extends React.PureComponent<IProps, IState> {
     });
   }
 
+  private buildList() {
+    const content = words.map((word) => (
+      <li>
+        {word[0]}
+        <span>:</span>
+        {word[1]}
+      </li>
+    ));
+
+    return <List>{content}</List>;
+  }
+
   public render() {
     const { wordIndex, inversedQuestion } = this.state;
 
@@ -111,11 +134,16 @@ export default class App extends React.PureComponent<IProps, IState> {
     const answer = !inversedQuestion ? 1 : 0;
     return (
       <StyledApp>
-        <Card question={text[question]} answer={text[answer]} />
-        <Buttons>
-          <InverseButton onClick={this.onInverseClick}>Inverser</InverseButton>
-          <RandomButton onClick={this.onRandomClick}>Randomiser</RandomButton>
-        </Buttons>
+        <Quizz>
+          <Card question={text[question]} answer={text[answer]} />
+          <Buttons>
+            <InverseButton onClick={this.onInverseClick}>
+              Inverser
+            </InverseButton>
+            <RandomButton onClick={this.onRandomClick}>Randomiser</RandomButton>
+          </Buttons>
+        </Quizz>
+        {this.buildList()}
       </StyledApp>
     );
   }
