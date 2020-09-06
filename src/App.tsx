@@ -14,6 +14,9 @@ const StyledApp = styled.div`
 `;
 
 const Buttons = styled.div`
+  display: flex;
+  justify-content: center;
+  /* flex-direction: column; */
   button:first-child {
     margin-right: 8px;
   }
@@ -41,7 +44,11 @@ const InverseButton = styled.button`
   border-style: none;
 `;
 
-const Quizz = styled.div``;
+const Quizz = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+`;
 
 const List = styled.div`
   display: flex;
