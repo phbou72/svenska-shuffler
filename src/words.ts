@@ -7,6 +7,9 @@ const words = [
   ["fjärde", "quatrième"],
   ["femte", "cinquième"],
   ["sjätte", "sixième"],
+  ["sjunde", "sixième"],
+  ["åttonde", "huitième"],
+  ["nionde", "neuvième"],
   // ["ett", "1"],
   // ["två", "2"],
   // ["tre", "3"],
@@ -135,6 +138,15 @@ const words = [
   ["varje", "chaque"],
   ["för", "pour"],
   ["maten", "nourriture"],
+  ["banta -r -de -t", "faire un régime"],
+  ["något", "quelque-chose"],
+  ["bröd -et", "pain"],
+  ["utan", "sans"],
+  ["smör -et", "beurre"],
+  ["skink/a -an -or", "jambon"],
+  ["jättegott", "super bon"],
+  ["billigt", "pas cher"],
+  ["veta vet vissta vetat", "savoir"],
 ];
 
 export default words;
