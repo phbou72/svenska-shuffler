@@ -66,21 +66,64 @@ const List = styled.div`
 
 interface IProps {}
 interface IState {
-  wordIndex: number;
+  word: string[];
   inversedQuestion: boolean;
 }
 
+const MAX_LAST_WORDS = Math.floor(words.length * 0.35);
+
 export default class App extends React.PureComponent<IProps, IState> {
+  private static lastWords: string[][] = [];
+
   public state: IState = {
-    wordIndex: 0,
+    word: ["", ""],
     inversedQuestion: false,
   };
+
+  private static getRandomIndex() {
+    return random(words.length - 1);
+  }
+
+  private static addWord(word: string[]) {
+    if (App.lastWords.length === MAX_LAST_WORDS) {
+      App.lastWords.shift();
+    }
+    App.lastWords.push(word);
+  }
+
+  private static getNewWord() {
+    let word = words[App.getRandomIndex()];
+
+    if (App.lastWords.length === 0) {
+      App.addWord(word);
+    } else {
+      let hasNewWord = false;
+      while (!hasNewWord) {
+        let foundWord = false;
+        for (let i = 0; i < App.lastWords.length; i++) {
+          if (App.lastWords[i][0] === word[0]) {
+            foundWord = true;
+            break;
+          }
+        }
+
+        if (!foundWord) {
+          hasNewWord = true;
+          App.addWord(word);
+        } else {
+          word = words[App.getRandomIndex()];
+        }
+      }
+    }
+
+    return word;
+  }
 
   public constructor(props: IProps) {
     super(props);
 
     this.state = {
-      wordIndex: this.getRandomIndex(),
+      word: App.getNewWord(),
       inversedQuestion: false,
     };
 
@@ -109,26 +152,22 @@ export default class App extends React.PureComponent<IProps, IState> {
     }
   }
 
-  private getRandomIndex() {
-    return random(words.length - 1);
-  }
-
   private onRandomClick() {
     this.setState({
-      wordIndex: this.getRandomIndex(),
+      word: App.getNewWord(),
     });
   }
 
   private onInverseClick() {
     this.setState({
       inversedQuestion: !this.state.inversedQuestion,
-      wordIndex: this.getRandomIndex(),
+      word: App.getNewWord(),
     });
   }
 
   private buildList() {
     const content = words.map((word) => (
-      <li>
+      <li key={word[0]}>
         {word[0]}
         <span>:</span>
         {word[1]}
@@ -139,9 +178,9 @@ export default class App extends React.PureComponent<IProps, IState> {
   }
 
   public render() {
-    const { wordIndex, inversedQuestion } = this.state;
+    const { word, inversedQuestion } = this.state;
 
-    const text = words[wordIndex];
+    const text = word;
     const question = !inversedQuestion ? 0 : 1;
     const answer = !inversedQuestion ? 1 : 0;
     return (
