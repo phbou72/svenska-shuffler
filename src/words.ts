@@ -127,7 +127,6 @@ const words = [
   ["de", "elles ils"],
   ["framsteg -er", "progrès"],
   ["göra gör gjorde gjort", "faire"],
-  ["han", "il"],
   ["lätt", "facile léger simple"],
   ["metod -en -ar", "méthode"],
   ["plätt -en -ar", "crêpe (petite)"],
@@ -176,7 +175,7 @@ const words = [
   ["mätt", "rassasié"],
   ["nu", "maintenant"],
   ["speciell", "spécial"],
-  ["specielt", "particulièrement spécialement surtout"],
+  ["speciellt", "particulièrement spécialement surtout"],
   ["trött", "fatigué"],
   ["vem", "qui"],
 ];
