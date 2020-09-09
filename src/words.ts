@@ -11,6 +11,7 @@ const words = [
   ["åttonde", "huitième"],
   ["nionde", "neuvième"],
   ["tionde", "dixième"],
+  ["elfte", "onzième"],
   // ["ett", "1"],
   // ["två", "2"],
   // ["tre", "3"],
