@@ -54,6 +54,7 @@ const words = [
   // ["fyrtio", "40"],
   // ["fyrtioett", "41"],
   // ["furtiotvå", "42"],
+  // lesson 1
   ["lektionen", "leçon"],
   ["bra bättre bäst", "bien"],
   ["du", "tu"],
@@ -66,6 +67,8 @@ const words = [
   ["men", "mais"],
   ["må -r -dde -tt", "aller (se porter)"],
   ["tack", "merci"],
+
+  // lesson 2
   ["då", "alors"],
   ["gift", "marié(e)"],
   ["heta/a -er hette hetat", "s'appeler"],
@@ -79,6 +82,8 @@ const words = [
   ["tredge", "troisième"],
   ["morgon", "matin"],
   ["imorgon", "demain"],
+
+  // lesson 3
   ["dag", "jour/journée"],
   ["det", "ça ce"],
   ["dig (deg)", "toi"],
@@ -99,6 +104,8 @@ const words = [
   ["vad", "comment, que, quoi, combien, qu'est-ce que, ce que"],
   ["vilken vilket vilka", "quel quelle quels quelles"],
   ["äta äter åt ätit", "manger"],
+
+  // lesson 4
   ["alltså", "donc"],
   ["diska -r -de -t", "vaiselle (faire la)"],
   ["dusch -en -ar", "douche"],
@@ -116,6 +123,8 @@ const words = [
   ["telefon -en -er", "téléphone"],
   ["tjänare", "salut (serviteur)"],
   ["älskling", "chéri/e"],
+
+  // lesson 5
   ["ett", "un/e"],
   ["glas -et", "verre"],
   ["kosta -r -de -t", "coûter"],
@@ -125,6 +134,8 @@ const words = [
   ["skiv/a -an -or", "tranche"],
   ["skort/a -an -or", "chemise"],
   ["vin -et -er", "vin"],
+
+  // lesson 6
   ["de", "elles ils"],
   ["framsteg -er", "progrès"],
   ["göra gör gjorde gjort", "faire"],
@@ -139,6 +150,8 @@ const words = [
   ["varje", "chaque"],
   ["för", "pour"],
   ["maten", "nourriture"],
+
+  // lesson 8
   ["banta -r -de -t", "faire un régime"],
   ["något", "quelque-chose"],
   ["bröd -et", "pain"],
@@ -148,6 +161,8 @@ const words = [
   ["jättegott", "super bon"],
   ["billigt", "pas cher"],
   ["veta vet vissta vetat", "savoir"],
+
+  // lesson 9
   ["fästmö -n -r", "fiancée"],
   ["hans", "sa (à lui) / le sien / la sienne / les siennes ses son"],
   ["i", "dans à"],
@@ -163,6 +178,8 @@ const words = [
   ["syst/er -ern -ar", "soeur"],
   ["tur -en", "chance"],
   ["ännu", "encore"],
+
+  // lesson 10
   ["alltid", "toujours"],
   ["diskmaskin", "lave-vaiselle"],
   ["efter", "après"],
