@@ -149,7 +149,7 @@ const words = [
   ["veta vet vissta vetat", "savoir"],
   ["fästmö -n -r", "fiancée"],
   ["hans", "sa (à lui) / le sien / la sienne / les siennes ses son"],
-  ["i", "dans"],
+  ["i", "dans à"],
   [
     "min / mitt / mina",
     "mon / ma / mes / le mien / la mienne / les miennes / à moi",
@@ -178,6 +178,27 @@ const words = [
   ["speciellt", "particulièrement spécialement surtout"],
   ["trött", "fatigué"],
   ["vem", "qui"],
+
+  // lesson 11
+  ["ge (giva) -r gav givit", "donner "],
+  ["här", "ic"],
+  ["inne", "dedans intérieur"],
+  ["ljus", "blond clair"],
+  ["mig", "me moi moi(à ~)"],
+  ["mörk", "brun foncé"],
+  ["otålig", "impatient"],
+  ["på", "en"],
+  ["röd rött röda", "rouge"],
+  ["stick/a stack stuckit", "ficher le camp"],
+  ["stor större störst", "grand"],
+  ["ställe -t -n", "endroit place"],
+  ["terass -en -er ", "terrasse"],
+  ["tålig", "patient"],
+  ["törstig", "assoiffé"],
+  ["ute", "dehors"],
+  ["vit", "blanc"],
+  ["öl -en", "bière (chope)"],
+  ["öl -et", "bière (boisson)"],
 ];
 
 export default words;
