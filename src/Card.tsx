@@ -58,9 +58,15 @@ export default class Card extends React.PureComponent<IProps, IState> {
   private onKeyDown(e: any) {
     switch (e.key) {
       case "a":
-        this.onShowAnswerClick();
+        this.toggleShowAnswer();
         break;
     }
+  }
+
+  private toggleShowAnswer() {
+    this.setState({
+      showAnswer: !this.state.showAnswer,
+    });
   }
 
   private onShowQuestionClick() {
