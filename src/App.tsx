@@ -1,6 +1,7 @@
 import React from "react";
 import { random } from "lodash";
 import styled from "styled-components";
+import { RecoilRoot } from "recoil";
 
 import Card from "./Card";
 import words from "./words";
@@ -184,21 +185,25 @@ export default class App extends React.PureComponent<IProps, IState> {
     const question = !inversedQuestion ? 0 : 1;
     const answer = !inversedQuestion ? 1 : 0;
     return (
-      <StyledApp>
-        <Quizz>
-          <Card question={text[question]} answer={text[answer]} />
-          <Buttons>
-            <InverseButton onClick={this.onInverseClick}>
-              Inverser
-            </InverseButton>
-            <RandomButton onClick={this.onRandomClick}>Randomiser</RandomButton>
-          </Buttons>
-        </Quizz>
+      <RecoilRoot>
+        <StyledApp>
+          <Quizz>
+            <Card question={text[question]} answer={text[answer]} />
+            <Buttons>
+              <InverseButton onClick={this.onInverseClick}>
+                Inverser
+              </InverseButton>
+              <RandomButton onClick={this.onRandomClick}>
+                Randomiser
+              </RandomButton>
+            </Buttons>
+          </Quizz>
 
-        <Count>Number of words : {words.length}</Count>
+          <Count>Number of words : {words.length}</Count>
 
-        {this.buildList()}
-      </StyledApp>
+          {this.buildList()}
+        </StyledApp>
+      </RecoilRoot>
     );
   }
 }
