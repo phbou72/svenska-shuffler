@@ -254,6 +254,27 @@ const words = [
   ["vit", "blanc"],
   ["öl -en", "bière (chope)"],
   ["öl -et", "bière (boisson)"],
+
+  // lesson 12
+  ["aldrig", "jamais (ne ~)"],
+  ["dansa -r -de -t", "danser"],
+  [
+    "din / ditt / dina ",
+    "ton / test / vos / le tiens / les tiens / la vôtre / le vôtre /les vôtres",
+  ],
+  ["diskjockey -n -er ou -s", "disc-jockey"],
+  ["diskotet -et=", "discothèque"],
+  ["ensam ensamt ensamma", "seul"],
+  ["gå -r gick gått", "aller aller à pied marcher"],
+  ["gärna", "aimber (bien) volontiers"],
+  ["hem hemmet", "chez-soi foyer"],
+  ["hemkär", "casanier"],
+  ["hund -en -ar", "chien"],
+  ["lördag -en -ar", "samedi"],
+  ["man mannen män", "homme mari"],
+  ["säng -er -ar", "lit"],
+  ["väldig", "énorme puissant"],
+  ["väldigt", "énormément rudement très"],
 ];
 
 export default words;
