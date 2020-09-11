@@ -1,17 +1,20 @@
 // å
 
 const words = [
-  ["fösta", "première"],
-  ["andra", "deuxième"],
-  ["tredje", "troisième"],
-  ["fjärde", "quatrième"],
-  ["femte", "cinquième"],
-  ["sjätte", "sixième"],
-  ["sjunde", "sixième"],
-  ["åttonde", "huitième"],
-  ["nionde", "neuvième"],
-  ["tionde", "dixième"],
-  ["elfte", "onzième"],
+  // ["fösta", "première"],
+  // ["andra", "deuxième"],
+  // ["tredje", "troisième"],
+  // ["fjärde", "quatrième"],
+  // ["femte", "cinquième"],
+  // ["sjätte", "sixième"],
+  // ["sjunde", "sixième"],
+  // ["åttonde", "huitième"],
+  // ["nionde", "neuvième"],
+  // ["tionde", "dixième"],
+  // ["elfte", "onzième"],
+  // ["tolfte", "douzième"],
+
+  // numbers
   // ["ett", "1"],
   // ["två", "2"],
   // ["tre", "3"],
@@ -91,6 +94,7 @@ const words = [
   // ["sjuttiosju", "77"],
   // ["sjuttioåtta", "78"],
   // ["sjuttionio", "79"],
+
   // lesson 1
   ["lektionen", "leçon"],
   ["bra bättre bäst", "bien"],
@@ -105,7 +109,7 @@ const words = [
   ["må -r -dde -tt", "aller (se porter)"],
   ["tack", "merci"],
 
-  // lesson 2
+  // // lesson 2
   ["då", "alors"],
   ["gift", "marié(e)"],
   ["heta/a -er hette hetat", "s'appeler"],
@@ -120,7 +124,7 @@ const words = [
   ["morgon", "matin"],
   ["imorgon", "demain"],
 
-  // lesson 3
+  // // lesson 3
   ["dag", "jour/journée"],
   ["det", "ça ce"],
   ["dig (deg)", "toi"],
@@ -143,7 +147,7 @@ const words = [
   ["äta äter åt ätit", "manger"],
 
   // lesson 4
-  ["alltså", "donc"],
+  ["alltså", "donc alors"],
   ["diska -r -de -t", "vaiselle (faire la)"],
   ["dusch -en -ar", "douche"],
   ["där", "là-bas"],
@@ -151,7 +155,7 @@ const words = [
   ["han", "il"],
   ["hej då", "salut (au revoir)"],
   ["komma kommer kom kommit", "arriver venir"],
-  ["mustasch -en -en", "moustache"],
+  ["mustasch -en -er", "moustache"],
   ["nej", "non"],
   ["nisch", "niche"],
   ["och", "et"],
@@ -205,7 +209,7 @@ const words = [
   ["i", "dans à"],
   [
     "min / mitt / mina",
-    "mon / ma / mes / le mien / la mienne / les miennes / à moi",
+    "mon / ma / mes / le mien / la mienne / les miennes / à moi (possessive)",
   ],
   ["mö -n -r", "jeune fille"],
   ["otur -en", "malchance"],
@@ -239,7 +243,7 @@ const words = [
   ["här", "ic"],
   ["inne", "dedans intérieur"],
   ["ljus", "blond clair"],
-  ["mig", "me moi moi(à ~)"],
+  ["mig", "me moi moi(à ~) objet"],
   ["mörk", "brun foncé"],
   ["otålig", "impatient"],
   ["på", "en"],
@@ -251,7 +255,7 @@ const words = [
   ["tålig", "patient"],
   ["törstig", "assoiffé"],
   ["ute", "dehors"],
-  ["vit", "blanc"],
+  ["vit -t", "blanc"],
   ["öl -en", "bière (chope)"],
   ["öl -et", "bière (boisson)"],
 
