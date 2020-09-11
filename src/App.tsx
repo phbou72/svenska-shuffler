@@ -4,6 +4,8 @@ import styled from "styled-components";
 import { RecoilRoot } from "recoil";
 
 import Card from "./Card";
+import ListOfWords from "./ListOfWords";
+import WordsCount from "./WordsCount";
 import words from "./words";
 
 const StyledApp = styled.div`
@@ -48,21 +50,6 @@ const Quizz = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-`;
-
-const Count = styled.div`
-  display: flex;
-  justify-content: center;
-  margin: 16px 0;
-`;
-
-const List = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-top: 20px;
-  span {
-    margin: 0 8px;
-  }
 `;
 
 interface IProps {}
@@ -166,18 +153,6 @@ export default class App extends React.PureComponent<IProps, IState> {
     });
   }
 
-  private buildList() {
-    const content = words.map((word) => (
-      <li key={word[0]}>
-        {word[0]}
-        <span>:</span>
-        {word[1]}
-      </li>
-    ));
-
-    return <List>{content}</List>;
-  }
-
   public render() {
     const { word, inversedQuestion } = this.state;
 
@@ -199,9 +174,8 @@ export default class App extends React.PureComponent<IProps, IState> {
             </Buttons>
           </Quizz>
 
-          <Count>Number of words : {words.length}</Count>
-
-          {this.buildList()}
+          <WordsCount />
+          <ListOfWords />
         </StyledApp>
       </RecoilRoot>
     );
