@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
 const StyledCard = styled.div`
@@ -30,77 +30,38 @@ interface IProps {
   question: string;
   answer: string;
 }
-interface IState {
-  showAnswer: boolean;
-}
 
-export default class Card extends React.PureComponent<IProps, IState> {
-  public state: IState = {
-    showAnswer: false,
+const Card = (props: IProps) => {
+  const [showAnswer, setShowAnswer] = useState(false);
+  const { question, answer } = props;
+
+  const toggleShowAnswer = () => {
+    setShowAnswer(!showAnswer);
   };
 
-  public constructor(props: IProps) {
-    super(props);
+  const onShowQuestionClick = () => {
+    setShowAnswer(false);
+  };
 
-    this.onShowAnswerClick = this.onShowAnswerClick.bind(this);
-    this.onShowQuestionClick = this.onShowQuestionClick.bind(this);
-    this.onKeyDown = this.onKeyDown.bind(this);
-  }
+  const onShowAnswerClick = () => {
+    setShowAnswer(true);
+  };
 
-  public componentDidMount() {
-    document.addEventListener("keydown", this.onKeyDown);
-  }
+  useEffect(() => {
+    window.addEventListener("keydown", toggleShowAnswer);
+    return () => {
+      window.removeEventListener("keydown", toggleShowAnswer);
+    };
+  });
 
-  public componentWillUnmount() {
-    document.removeEventListener("keydown", this.onKeyDown);
-  }
+  return (
+    <StyledCard>
+      {!showAnswer && question}
+      {showAnswer && answer}
+      {showAnswer && <Button onClick={onShowQuestionClick}>Revoir</Button>}
+      {!showAnswer && <Button onClick={onShowAnswerClick}>Réponse</Button>}
+    </StyledCard>
+  );
+};
 
-  private onKeyDown(e: any) {
-    switch (e.key) {
-      case "a":
-        this.toggleShowAnswer();
-        break;
-    }
-  }
-
-  private toggleShowAnswer() {
-    this.setState({
-      showAnswer: !this.state.showAnswer,
-    });
-  }
-
-  private onShowQuestionClick() {
-    this.setState({
-      showAnswer: false,
-    });
-  }
-
-  private onShowAnswerClick() {
-    this.setState({
-      showAnswer: true,
-    });
-  }
-
-  public componentDidUpdate(nextProps: IProps) {
-    if (nextProps.question !== this.props.question) {
-      this.setState({
-        showAnswer: false,
-      });
-    }
-  }
-
-  public render() {
-    return (
-      <StyledCard>
-        {!this.state.showAnswer && this.props.question}
-        {this.state.showAnswer && this.props.answer}
-        {this.state.showAnswer && (
-          <Button onClick={this.onShowQuestionClick}>Revoir</Button>
-        )}
-        {!this.state.showAnswer && (
-          <Button onClick={this.onShowAnswerClick}>Réponse</Button>
-        )}
-      </StyledCard>
-    );
-  }
-}
+export default Card;
