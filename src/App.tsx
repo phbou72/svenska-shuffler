@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-// import { RecoilRoot } from "recoil";
+import { RecoilRoot } from "recoil";
 
 import Quizz from "./Quizz";
 import ListOfWords from "./ListOfWords";
@@ -19,13 +19,13 @@ interface IState {}
 
 const App = () => {
   return (
-    // <RecoilRoot>
-    <StyledApp>
-      <Quizz />
-      <WordsCount />
-      <ListOfWords />
-    </StyledApp>
-    // </RecoilRoot>
+    <RecoilRoot>
+      <StyledApp>
+        <Quizz />
+        <WordsCount />
+        <ListOfWords />
+      </StyledApp>
+    </RecoilRoot>
   );
 };
 

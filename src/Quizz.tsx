@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { random } from "lodash";
+import { useRecoilValue } from "recoil";
 
 import styled from "styled-components";
 
-import words from "./words";
+import flattenedWords from "./states/flattenedWords";
 
 import Card from "./Card";
 
@@ -43,24 +44,24 @@ const StyledQuizz = styled.div`
   flex-direction: column;
 `;
 
-const MAX_LAST_WORDS = Math.floor(words.length * 0.35);
+const MAX_LAST_WORDS_RATIO = 0.35;
 
 let lastWords: string[][] = [];
 
-const getRandomIndex = () => random(words.length - 1);
+const getRandomIndex = (words: string[][]) => random(words.length - 1);
 
-const addWord = (word: string[]) => {
-  if (lastWords.length === MAX_LAST_WORDS) {
+const addWord = (word: string[], words: string[][]) => {
+  if (lastWords.length === Math.floor(words.length * MAX_LAST_WORDS_RATIO)) {
     lastWords.shift();
   }
   lastWords.push(word);
 };
 
-const getNewWord = () => {
-  let word = words[getRandomIndex()];
+const getNewWord = (words: string[][]) => {
+  let word = words[getRandomIndex(words)];
 
   if (lastWords.length === 0) {
-    addWord(word);
+    addWord(word, words);
   } else {
     let hasNewWord = false;
     while (!hasNewWord) {
@@ -74,9 +75,9 @@ const getNewWord = () => {
 
       if (!foundWord) {
         hasNewWord = true;
-        addWord(word);
+        addWord(word, words);
       } else {
-        word = words[getRandomIndex()];
+        word = words[getRandomIndex(words)];
       }
     }
   }
@@ -85,7 +86,9 @@ const getNewWord = () => {
 };
 
 const Quizz = () => {
-  const [word, setWord] = useState(getNewWord());
+  const words = useRecoilValue(flattenedWords);
+
+  const [word, setWord] = useState(getNewWord(words));
   const [inversedQuestion, setInversedQuestion] = useState(false);
 
   useEffect(() => {
@@ -111,11 +114,11 @@ const Quizz = () => {
     }
   };
   const onRandomClick = () => {
-    setWord(getNewWord());
+    setWord(getNewWord(words));
   };
 
   const onInverseClick = () => {
-    setWord(getNewWord());
+    setWord(getNewWord(words));
     setInversedQuestion(!inversedQuestion);
   };
 
