@@ -73,58 +73,58 @@ interface IState {
 
 const MAX_LAST_WORDS = Math.floor(words.length * 0.35);
 
+let lastWords: string[][] = [];
+
+const getRandomIndex = () => random(words.length - 1);
+
+const addWord = (word: string[]) => {
+  if (lastWords.length === MAX_LAST_WORDS) {
+    lastWords.shift();
+  }
+  lastWords.push(word);
+};
+
+const getNewWord = () => {
+  let word = words[getRandomIndex()];
+
+  if (lastWords.length === 0) {
+    addWord(word);
+  } else {
+    let hasNewWord = false;
+    while (!hasNewWord) {
+      let foundWord = false;
+      for (let i = 0; i < lastWords.length; i++) {
+        if (lastWords[i][0] === word[0]) {
+          foundWord = true;
+          break;
+        }
+      }
+
+      if (!foundWord) {
+        hasNewWord = true;
+        addWord(word);
+      } else {
+        word = words[getRandomIndex()];
+      }
+    }
+  }
+
+  return word;
+};
+
 export default class App extends React.PureComponent<IProps, IState> {
-  private static lastWords: string[][] = [];
+  // private static lastWords: string[][] = [];
 
   public state: IState = {
     word: ["", ""],
     inversedQuestion: false,
   };
 
-  private static getRandomIndex() {
-    return random(words.length - 1);
-  }
-
-  private static addWord(word: string[]) {
-    if (App.lastWords.length === MAX_LAST_WORDS) {
-      App.lastWords.shift();
-    }
-    App.lastWords.push(word);
-  }
-
-  private static getNewWord() {
-    let word = words[App.getRandomIndex()];
-
-    if (App.lastWords.length === 0) {
-      App.addWord(word);
-    } else {
-      let hasNewWord = false;
-      while (!hasNewWord) {
-        let foundWord = false;
-        for (let i = 0; i < App.lastWords.length; i++) {
-          if (App.lastWords[i][0] === word[0]) {
-            foundWord = true;
-            break;
-          }
-        }
-
-        if (!foundWord) {
-          hasNewWord = true;
-          App.addWord(word);
-        } else {
-          word = words[App.getRandomIndex()];
-        }
-      }
-    }
-
-    return word;
-  }
-
   public constructor(props: IProps) {
     super(props);
 
     this.state = {
-      word: App.getNewWord(),
+      word: getNewWord(),
       inversedQuestion: false,
     };
 
@@ -155,14 +155,14 @@ export default class App extends React.PureComponent<IProps, IState> {
 
   private onRandomClick() {
     this.setState({
-      word: App.getNewWord(),
+      word: getNewWord(),
     });
   }
 
   private onInverseClick() {
     this.setState({
       inversedQuestion: !this.state.inversedQuestion,
-      word: App.getNewWord(),
+      word: getNewWord(),
     });
   }
 
