@@ -7,7 +7,7 @@ import selectedLessonsState from "./states/selectedLessons";
 import lessons from "./states/lessons";
 
 const StyledLessonSelector = styled.div`
-  width: 500px;
+  width: 350px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
