@@ -1,6 +1,11 @@
 // å
 
-const lessons = [
+export interface ILesson {
+  title: string;
+  data: string[][];
+}
+
+const lessons: ILesson[] = [
   // ["fösta", "première"],
   // ["andra", "deuxième"],
   // ["tredje", "troisième"],

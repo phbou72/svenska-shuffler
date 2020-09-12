@@ -27,8 +27,8 @@ const Button = styled.button`
 `;
 
 interface IProps {
-  question: string;
-  answer: string;
+  question: string | null;
+  answer: string | null;
   showAnswer: boolean;
   setShowAnswer: (showAnswer: boolean) => void;
 }

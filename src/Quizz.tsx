@@ -58,6 +58,10 @@ const addWord = (word: string[], words: string[][]) => {
 };
 
 const getNewWord = (words: string[][]) => {
+  if (words.length === 0) {
+    return null;
+  }
+
   let word = words[getRandomIndex(words)];
 
   if (lastWords.length === 0) {
@@ -129,8 +133,8 @@ const Quizz = () => {
   return (
     <StyledQuizz>
       <Card
-        question={text[question]}
-        answer={text[answer]}
+        question={text && text[question]}
+        answer={text && text[answer]}
         showAnswer={showAnswer}
         setShowAnswer={setShowAnswer}
       />
