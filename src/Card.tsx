@@ -36,7 +36,7 @@ const Card = (props: IProps) => {
   const { question, answer } = props;
 
   const toggleShowAnswer = (e: any) => {
-    if (e.key === "a") {
+    if (e.key === "a" || (e.key === "r" && showAnswer)) {
       setShowAnswer(!showAnswer);
     }
   };

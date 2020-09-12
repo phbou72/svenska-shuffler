@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import { random } from "lodash";
 import { useRecoilValue } from "recoil";
 
@@ -91,14 +91,14 @@ const Quizz = () => {
   const [word, setWord] = useState(getNewWord(words));
   const [inversedQuestion, setInversedQuestion] = useState(false);
 
-  const onRandomClick = useCallback(() => {
+  const onRandomClick = () => {
     setWord(getNewWord(words));
-  }, [words]);
+  };
 
-  const onInverseClick = useCallback(() => {
+  const onInverseClick = () => {
     setWord(getNewWord(words));
     setInversedQuestion(!inversedQuestion);
-  }, [words, inversedQuestion]);
+  };
 
   useEffect(() => {
     const onKeyDown = (e: any) => {
@@ -117,7 +117,7 @@ const Quizz = () => {
     return () => {
       window.removeEventListener("keydown", onKeyDown);
     };
-  }, [onRandomClick, onInverseClick]);
+  });
 
   const text = word;
   const question = !inversedQuestion ? 0 : 1;
