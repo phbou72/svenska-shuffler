@@ -289,7 +289,7 @@ const lessons: ILesson[] = [
     title: "11",
     data: [
       ["ge (giva) -r gav givit", "donner "],
-      ["här", "ic"],
+      ["här", "ici"],
       ["inne", "dedans intérieur"],
       ["ljus", "blond clair"],
       ["mig", "me moi moi(à ~) objet"],
@@ -324,7 +324,7 @@ const lessons: ILesson[] = [
       ["diskotet -et=", "discothèque"],
       ["ensam ensamt ensamma", "seul"],
       ["gå -r gick gått", "aller aller à pied marcher"],
-      ["gärna", "aimber (bien) volontiers"],
+      ["gärna", "aimer (bien) volontiers"],
       ["hem hemmet", "chez-soi foyer"],
       ["hemkär", "casanier"],
       ["hund -en -ar", "chien"],
