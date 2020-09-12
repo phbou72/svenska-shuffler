@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { random } from "lodash";
 import { useRecoilValue } from "recoil";
 
@@ -91,36 +91,37 @@ const Quizz = () => {
   const [word, setWord] = useState(getNewWord(words));
   const [inversedQuestion, setInversedQuestion] = useState(false);
 
+  const onRandomClick = useCallback(() => {
+    setWord(getNewWord(words));
+  }, [words]);
+
+  const onInverseClick = useCallback(() => {
+    setWord(getNewWord(words));
+    setInversedQuestion(!inversedQuestion);
+  }, [words, inversedQuestion]);
+
   useEffect(() => {
+    const onKeyDown = (e: any) => {
+      switch (e.key) {
+        case "r":
+          onRandomClick();
+          break;
+
+        case "i":
+          onInverseClick();
+          break;
+      }
+    };
+
     window.addEventListener("keydown", onKeyDown);
     return () => {
       window.removeEventListener("keydown", onKeyDown);
     };
-  });
+  }, [onRandomClick, onInverseClick]);
 
   const text = word;
   const question = !inversedQuestion ? 0 : 1;
   const answer = !inversedQuestion ? 1 : 0;
-
-  const onKeyDown = (e: any) => {
-    switch (e.key) {
-      case "r":
-        onRandomClick();
-        break;
-
-      case "i":
-        onInverseClick();
-        break;
-    }
-  };
-  const onRandomClick = () => {
-    setWord(getNewWord(words));
-  };
-
-  const onInverseClick = () => {
-    setWord(getNewWord(words));
-    setInversedQuestion(!inversedQuestion);
-  };
 
   return (
     <StyledQuizz>

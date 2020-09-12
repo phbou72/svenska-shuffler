@@ -35,8 +35,10 @@ const Card = (props: IProps) => {
   const [showAnswer, setShowAnswer] = useState(false);
   const { question, answer } = props;
 
-  const toggleShowAnswer = () => {
-    setShowAnswer(!showAnswer);
+  const toggleShowAnswer = (e: any) => {
+    if (e.key === "a") {
+      setShowAnswer(!showAnswer);
+    }
   };
 
   const onShowQuestionClick = () => {
