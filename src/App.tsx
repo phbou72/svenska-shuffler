@@ -21,8 +21,8 @@ const App = () => {
   return (
     <StyledApp>
       <Quizz />
-      <WordsCount />
       <LessonSelector />
+      <WordsCount />
       <ListOfWords />
     </StyledApp>
   );
