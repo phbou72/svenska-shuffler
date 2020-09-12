@@ -88,16 +88,19 @@ const getNewWord = (words: string[][]) => {
 const Quizz = () => {
   const words = useRecoilValue(flattenedWords);
 
+  const [showAnswer, setShowAnswer] = useState(false);
   const [word, setWord] = useState(getNewWord(words));
   const [inversedQuestion, setInversedQuestion] = useState(false);
 
   const onRandomClick = () => {
     setWord(getNewWord(words));
+    setShowAnswer(false);
   };
 
   const onInverseClick = () => {
     setWord(getNewWord(words));
     setInversedQuestion(!inversedQuestion);
+    setShowAnswer(false);
   };
 
   useEffect(() => {
@@ -125,7 +128,12 @@ const Quizz = () => {
 
   return (
     <StyledQuizz>
-      <Card question={text[question]} answer={text[answer]} />
+      <Card
+        question={text[question]}
+        answer={text[answer]}
+        showAnswer={showAnswer}
+        setShowAnswer={setShowAnswer}
+      />
       <Buttons>
         <InverseButton onClick={onInverseClick}>Inverser</InverseButton>
         <RandomButton onClick={onRandomClick}>Randomiser</RandomButton>

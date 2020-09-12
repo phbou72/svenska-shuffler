@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 
 const StyledCard = styled.div`
@@ -29,14 +29,15 @@ const Button = styled.button`
 interface IProps {
   question: string;
   answer: string;
+  showAnswer: boolean;
+  setShowAnswer: (showAnswer: boolean) => void;
 }
 
 const Card = (props: IProps) => {
-  const [showAnswer, setShowAnswer] = useState(false);
-  const { question, answer } = props;
+  const { question, answer, showAnswer, setShowAnswer } = props;
 
   const toggleShowAnswer = (e: any) => {
-    if (e.key === "a" || (e.key === "r" && showAnswer)) {
+    if (e.key === "a") {
       setShowAnswer(!showAnswer);
     }
   };
