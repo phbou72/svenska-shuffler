@@ -11,6 +11,11 @@ const StyledLessonSelector = styled.div`
   display: flex;
 `;
 
+const StyledCheckbox = styled.input`
+  width: 20px;
+  height: 20px;
+`;
+
 function useSelectLessonSelector() {
   const [selectedLessons, setSelectedLessons] = useRecoilState(
     selectedLessonsState
@@ -33,7 +38,7 @@ const LessonSelector = () => {
     return (
       <label key={index}>
         {allLessons[index].title}
-        <input
+        <StyledCheckbox
           type="checkbox"
           checked={!!selectedLesson}
           value={index}
