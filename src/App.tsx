@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import Quizz from "./Quizz";
+import LessonSelector from "./LessonSelector";
 import ListOfWords from "./ListOfWords";
 import WordsCount from "./WordsCount";
 
@@ -21,6 +22,7 @@ const App = () => {
     <StyledApp>
       <Quizz />
       <WordsCount />
+      <LessonSelector />
       <ListOfWords />
     </StyledApp>
   );

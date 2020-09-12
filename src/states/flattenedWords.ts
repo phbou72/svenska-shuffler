@@ -1,11 +1,13 @@
 import { selector } from "recoil";
-import { flatten } from "lodash";
+import { flatten, map } from "lodash";
 
-import words from "./words";
+import lessons from "./lessons";
 
 export default selector({
   key: "flattenedWords",
   get: ({ get }) => {
-    return flatten(get(words));
+    const allLessons = [...get(lessons)];
+    const wordsGroup = map(allLessons, (lesson) => lesson.data);
+    return flatten(wordsGroup);
   },
 });
