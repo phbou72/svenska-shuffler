@@ -358,6 +358,18 @@ const lessons: ILesson[] = [
       ["vi", "nous"],
     ],
   },
+  {
+    title: "14",
+    data: [
+      ["lördag", "samedi"],
+      ["söndag", "dimanche"],
+      ["måndag", "lundi"],
+      ["tisdag", "mardi"],
+      ["onsdag", "mercredi"],
+      ["torsdag", "jeudi"],
+      ["fredag", "vendredi"],
+    ],
+  },
 ];
 
 export default lessons;
