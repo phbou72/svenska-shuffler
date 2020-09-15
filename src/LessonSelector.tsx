@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import { map, fill } from "lodash";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { map } from "lodash";
+import { useRecoilValue } from "recoil";
 
-import selectedLessonsState from "./states/selectedLessons";
 import lessonsState from "./states/lessons";
+import useSelectedLessons from "./states/hooks/useSelectedLessons";
 
 const StyledLessonSelector = styled.div`
   width: 350px;
@@ -35,25 +35,6 @@ const StyledButton = styled.button`
     margin-right: 8px;
   }
 `;
-
-function useSelectedLessons() {
-  const [selectedLessons, setSelectedLessons] = useRecoilState(
-    selectedLessonsState
-  );
-
-  function toggleSelectedLesson(index: number) {
-    const newSelectedLessons = [...selectedLessons];
-    newSelectedLessons[index] = !newSelectedLessons[index];
-    setSelectedLessons(newSelectedLessons);
-  }
-
-  function setAllLesson(checked: boolean) {
-    const newSelectedLessons = fill(Array(selectedLessons.length), checked);
-    setSelectedLessons(newSelectedLessons);
-  }
-
-  return { selectedLessons, toggleSelectedLesson, setAllLesson };
-}
 
 const LessonSelector = () => {
   const {
