@@ -4,7 +4,7 @@ import { useRecoilValue } from "recoil";
 
 import styled from "styled-components";
 
-import flattenedWords from "./states/flattenedWords";
+import wordsState from "./states/words";
 
 import Card from "./Card";
 
@@ -90,7 +90,7 @@ const getNewWord = (words: string[][]) => {
 };
 
 const Quizz = () => {
-  const words = useRecoilValue(flattenedWords);
+  const words = useRecoilValue(wordsState);
 
   const [showAnswer, setShowAnswer] = useState(false);
   const [word, setWord] = useState(getNewWord(words));

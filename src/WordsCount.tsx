@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useRecoilValue } from "recoil";
 
-import flattenedWords from "./states/flattenedWords";
+import wordsState from "./states/words";
 
 const StyledWordsCount = styled.div`
   display: flex;
@@ -11,8 +11,8 @@ const StyledWordsCount = styled.div`
 `;
 
 const WordsCount = () => {
-  const words = useRecoilValue(flattenedWords);
-  return <StyledWordsCount>Number of words : {words.length}</StyledWordsCount>;
+  const words = useRecoilValue(wordsState);
+  return <StyledWordsCount>Nombre de mots : {words.length}</StyledWordsCount>;
 };
 
 export default WordsCount;

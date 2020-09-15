@@ -4,7 +4,7 @@ import { map, fill } from "lodash";
 import { useRecoilState, useRecoilValue } from "recoil";
 
 import selectedLessonsState from "./states/selectedLessons";
-import lessons from "./states/lessons";
+import lessonsState from "./states/lessons";
 
 const StyledLessonSelector = styled.div`
   width: 350px;
@@ -36,7 +36,7 @@ const StyledButton = styled.button`
   }
 `;
 
-function useSelectLessonSelector() {
+function useSelectedLessons() {
   const [selectedLessons, setSelectedLessons] = useRecoilState(
     selectedLessonsState
   );
@@ -60,13 +60,13 @@ const LessonSelector = () => {
     selectedLessons,
     toggleSelectedLesson,
     setAllLesson,
-  } = useSelectLessonSelector();
-  const allLessons = useRecoilValue(lessons);
+  } = useSelectedLessons();
+  const lessons = useRecoilValue(lessonsState);
 
   const lessonsCheckboxes = map(selectedLessons, (selectedLesson, index) => {
     return (
       <label key={index}>
-        {allLessons[index].title}
+        {lessons[index].title}
         <StyledCheckbox
           type="checkbox"
           checked={!!selectedLesson}

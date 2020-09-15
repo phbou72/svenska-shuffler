@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useRecoilValue } from "recoil";
 
-import flattenedWords from "./states/flattenedWords";
+import wordsState from "./states/words";
 
 const StyledListOfWords = styled.div`
   display: flex;
@@ -14,7 +14,7 @@ const StyledListOfWords = styled.div`
 `;
 
 const ListOfWords = () => {
-  const words = useRecoilValue(flattenedWords);
+  const words = useRecoilValue(wordsState);
 
   const content = words.map((word) => (
     <li key={word[0]}>

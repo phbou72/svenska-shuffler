@@ -5,7 +5,7 @@ import lessons from "./lessons";
 import selectedLessons from "./selectedLessons";
 
 export default selector({
-  key: "flattenedWords",
+  key: "wordsState",
   get: ({ get }) => {
     const allLessons = get(lessons);
     const allSelectedLessons = get(selectedLessons);
