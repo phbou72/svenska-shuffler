@@ -14,9 +14,6 @@ const StyledApp = styled.div`
   align-items: center;
 `;
 
-interface IProps {}
-interface IState {}
-
 const App = () => {
   return (
     <StyledApp>
