@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { random } from "lodash";
-import { useRecoilValue } from "recoil";
 
 import styled from "styled-components";
 
-import wordsState from "./states/words";
-
 import Card from "./Card";
+import useLastWordsSeen from "./states/hooks/useLastWordsSeen";
 
 const Buttons = styled.div`
   display: flex;
@@ -44,65 +41,20 @@ const StyledQuizz = styled.div`
   flex-direction: column;
 `;
 
-const MAX_LAST_WORDS_RATIO = 0.35;
-
-let lastWords: string[][] = [];
-
-const getRandomIndex = (words: string[][]) => random(words.length - 1);
-
-const addWord = (word: string[], words: string[][]) => {
-  if (lastWords.length === Math.floor(words.length * MAX_LAST_WORDS_RATIO)) {
-    lastWords.shift();
-  }
-  lastWords.push(word);
-};
-
-const getNewWord = (words: string[][]) => {
-  if (words.length === 0) {
-    return null;
-  }
-
-  let word = words[getRandomIndex(words)];
-
-  if (lastWords.length === 0) {
-    addWord(word, words);
-  } else {
-    let hasNewWord = false;
-    while (!hasNewWord) {
-      let foundWord = false;
-      for (let i = 0; i < lastWords.length; i++) {
-        if (lastWords[i][0] === word[0]) {
-          foundWord = true;
-          break;
-        }
-      }
-
-      if (!foundWord) {
-        hasNewWord = true;
-        addWord(word, words);
-      } else {
-        word = words[getRandomIndex(words)];
-      }
-    }
-  }
-
-  return word;
-};
-
 const Quizz = () => {
-  const words = useRecoilValue(wordsState);
+  const { getNewWord } = useLastWordsSeen();
 
   const [showAnswer, setShowAnswer] = useState(false);
-  const [word, setWord] = useState(getNewWord(words));
+  const [word, setWord] = useState(getNewWord());
   const [inversedQuestion, setInversedQuestion] = useState(false);
 
   const onRandomClick = () => {
-    setWord(getNewWord(words));
+    setWord(getNewWord());
     setShowAnswer(false);
   };
 
   const onInverseClick = () => {
-    setWord(getNewWord(words));
+    setWord(getNewWord());
     setInversedQuestion(!inversedQuestion);
     setShowAnswer(false);
   };

@@ -4,6 +4,7 @@ import { useRecoilValue } from "recoil";
 
 import lessonsState from "./states/lessons";
 import useSelectedLessons from "./states/hooks/useSelectedLessons";
+import useLastWordsSeen from "./states/hooks/useLastWordsSeen";
 
 const StyledLessonSelector = styled.div`
   width: 350px;
@@ -37,9 +38,15 @@ const StyledButton = styled.button`
 
 const LessonsCheckboxes = () => {
   const { selectedLessons, toggleSelectedLesson } = useSelectedLessons();
+  const { resetWordsSeen } = useLastWordsSeen();
   const lessons = useRecoilValue(lessonsState);
 
   const checkboxes = selectedLessons.map((selectedLesson, index) => {
+    const toggleLesson = () => {
+      resetWordsSeen();
+      toggleSelectedLesson(index);
+    };
+
     return (
       <label key={index}>
         {lessons[index].title}
@@ -47,9 +54,7 @@ const LessonsCheckboxes = () => {
           type="checkbox"
           checked={!!selectedLesson}
           value={index}
-          onChange={() => {
-            toggleSelectedLesson(index);
-          }}
+          onChange={toggleLesson}
         />
       </label>
     );
