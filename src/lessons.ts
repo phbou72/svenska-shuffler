@@ -21,6 +21,7 @@ const lessons: ILesson[] = [
   // ["trettonde", "treizième"],
   // ["fjortonde", "quatorzième"],
   // ["femtonde", "quinzième"],
+  // ["sextonde", "seizième"],
 
   // numbers
   // ["ett", "1"],
