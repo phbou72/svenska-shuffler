@@ -1,26 +1,25 @@
-import { useRecoilState, useRecoilValue } from "recoil";
-import { random, drop, clone } from "lodash";
+import { useRecoilValue } from "recoil";
+import { random } from "lodash";
 
 import wordsState from "../words";
-import lastWordsSeenState from "../lastWordsSeen";
 
 const MAX_LAST_WORDS_RATIO = 0.35;
 
+let lastWordsSeen: string[][] = [];
+
 export default function useLastWordsSeen() {
   const words = useRecoilValue(wordsState);
-  const [lastWordsSeen, setLastWordsSeen] = useRecoilState(lastWordsSeenState);
+
   const maxCache = Math.floor(words.length * MAX_LAST_WORDS_RATIO);
 
   const getRandomWord = () => words[random(words.length - 1)];
 
   const addWord = (word: string[]) => {
     if (lastWordsSeen.length === maxCache) {
-      setLastWordsSeen(drop(lastWordsSeen));
+      lastWordsSeen.shift();
     }
 
-    const cloned = clone(lastWordsSeen);
-    cloned.push(word);
-    setLastWordsSeen(cloned);
+    lastWordsSeen.push(word);
   };
 
   const getNewWord = () => {
@@ -55,7 +54,12 @@ export default function useLastWordsSeen() {
     return word;
   };
 
+  const resetWordsSeen = () => {
+    lastWordsSeen = [];
+  };
+
   return {
     getNewWord,
+    resetWordsSeen,
   };
 }
