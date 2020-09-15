@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { map } from "lodash";
 import { useRecoilValue } from "recoil";
 
 import lessonsState from "./states/lessons";
@@ -36,15 +35,11 @@ const StyledButton = styled.button`
   }
 `;
 
-const LessonSelector = () => {
-  const {
-    selectedLessons,
-    toggleSelectedLesson,
-    setAllLesson,
-  } = useSelectedLessons();
+const LessonsCheckboxes = () => {
+  const { selectedLessons, toggleSelectedLesson } = useSelectedLessons();
   const lessons = useRecoilValue(lessonsState);
 
-  const lessonsCheckboxes = map(selectedLessons, (selectedLesson, index) => {
+  const checkboxes = selectedLessons.map((selectedLesson, index) => {
     return (
       <label key={index}>
         {lessons[index].title}
@@ -60,6 +55,12 @@ const LessonSelector = () => {
     );
   });
 
+  return <>{checkboxes}</>;
+};
+
+const LessonSelector = () => {
+  const { setAllLesson } = useSelectedLessons();
+
   const onUncheckAll = () => {
     setAllLesson(false);
   };
@@ -70,7 +71,7 @@ const LessonSelector = () => {
 
   return (
     <StyledLessonSelector>
-      {lessonsCheckboxes}
+      <LessonsCheckboxes />
 
       <Buttons>
         <StyledButton onClick={onUncheckAll}>Décocher tout</StyledButton>
