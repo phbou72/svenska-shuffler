@@ -6,7 +6,7 @@
     "lodash": "^4.17.20",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "recoil": "0.0.10",
+    "recoil": "0.0.13",
     "styled-components": "^5.2.0"
   },
   "scripts": {
