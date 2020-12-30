@@ -1,5 +1,4 @@
 import { useRecoilState } from "recoil";
-import { fill } from "lodash";
 
 import selectedLessonsState from "../selectedLessons";
 
@@ -15,7 +14,7 @@ export default function useSelectedLessons() {
   }
 
   function setAllLesson(checked: boolean) {
-    const newSelectedLessons = fill(Array(selectedLessons.length), checked);
+    const newSelectedLessons = Array(selectedLessons.length).fill(checked);
     setSelectedLessons(newSelectedLessons);
   }
 

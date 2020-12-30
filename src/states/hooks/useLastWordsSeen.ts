@@ -1,5 +1,4 @@
 import { useRecoilValue } from "recoil";
-import { random } from "lodash";
 
 import wordsState from "../words";
 
@@ -12,7 +11,7 @@ export default function useLastWordsSeen() {
 
   const maxCache = Math.floor(words.length * MAX_LAST_WORDS_RATIO);
 
-  const getRandomWord = () => words[random(words.length - 1)];
+  const getRandomWord = () => words[Math.round(Math.random() * (words.length - 1))];
 
   const addWord = (word: string[]) => {
     if (lastWordsSeen.length === maxCache) {

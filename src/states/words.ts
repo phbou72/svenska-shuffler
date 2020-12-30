@@ -1,5 +1,4 @@
 import { selector } from "recoil";
-import { flatten, forEach } from "lodash";
 
 import lessons from "./lessons";
 import selectedLessons from "./selectedLessons";
@@ -11,12 +10,12 @@ export default selector({
     const allSelectedLessons = get(selectedLessons);
 
     const wordsGroup: string[][][] = [];
-    forEach(allLessons, (lesson, index) => {
+    allLessons.forEach((lesson, index) => {
       if (allSelectedLessons[index]) {
         wordsGroup.push(lesson.data);
       }
     });
 
-    return flatten(wordsGroup);
+    return wordsGroup.flat();
   },
 });
